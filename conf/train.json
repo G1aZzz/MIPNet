@@ -1,0 +1,49 @@
+{
+  "log_path": "results/logs/",
+  "epochs": 50,
+  "save_path":"results/",
+  "model": {
+      "module": "models.MIPNet",
+    "main": "MIPNet",
+    "args": {}
+  },
+
+  "loss_function": {
+    "module": "tools.loss",
+    "main": "SiSnr",
+    "args": {}
+  },
+
+  "trainer": {
+    "module": "trainer.train_mag",
+    "main": "TrainMag_init",
+    "args": {}
+  },
+
+  "train_dataset": {
+    "module": "tools.dataset",
+    "main": "DatasetWSJ",
+    "args": {
+      "mixture_path": "path/to/mix",
+      "clean_path": "path/to/clean",
+      "is_check": true
+    }
+  },
+
+
+  "train_dataloader": {
+    "shuffle": true,
+    "num_workers":0,
+    "batch_size": 2
+  },
+
+ 
+  "optimizer": {
+    "lr": 0.0001,
+    "beta1": 0.9,
+  },
+  "stft_parameter": {
+    "win_len": 320,
+    "hop_len": 160
+  }
+}
